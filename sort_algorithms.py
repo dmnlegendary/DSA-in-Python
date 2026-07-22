@@ -111,3 +111,28 @@ def mergeSort(arr, l, r):
         mergeSort(arr, l, m)
         mergeSort(arr, m + 1, r)
         merge(arr, l, m, r)
+
+'''
+Working of Quick Sort
+QuickSort works on the principle of divide and conquer, breaking down the problem into smaller sub-problems. There are mainly three steps in the algorithm:
+
+- Choose a Pivot: Select one element (first, last, random, or median) as the pivot.
+- Partition the Array: Rearrange elements so that those smaller than the pivot are placed to its left and those greater are placed to its right. The pivot then moves to its correct sorted position.
+- Recursive Sorting: Recursively apply the same process to the left and right subarrays until all elements are sorted.
+- Base Case: When a subarray has one or no element, it is already sorted.
+'''
+def partition(arr, low, high):
+    pivot = arr[high]
+    i = low - 1
+    for j in range(low, high):
+        if arr[j] <= pivot:
+            i += 1
+            arr[i], arr[j] = arr[j], arr[i]
+    arr[i + 1], arr[high] = arr[high], arr[i + 1]
+    return i + 1
+
+def quick_sort(arr, low, high):
+    if low < high:
+        p = partition(arr, low, high)
+        quick_sort(arr, low, p - 1)
+        quick_sort(arr, p + 1, high)
