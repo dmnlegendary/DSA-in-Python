@@ -27,7 +27,8 @@ print(list_with_random_int)
 # Using several sort algorithms here
 # sort.bubble_sort_1D_int_lists(list_with_random_int)
 # sort.selection_sort_1D_int_lists(list_with_random_int)
-sort.insertion_sort_1D_int_lists(list_with_random_int)
+# sort.insertion_sort_1D_int_lists(list_with_random_int)
+sort.mergeSort(list_with_random_int, 0, len(list_with_random_int)-1)
 print("random numbers generated BUT SORTED are:")
 print(list_with_random_int)
 '''
