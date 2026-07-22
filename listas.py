@@ -26,7 +26,8 @@ print(list_with_random_int)
 
 # Using several sort algorithms here
 # sort.bubble_sort_1D_int_lists(list_with_random_int)
-sort.selection_sort_1D_int_lists(list_with_random_int)
+# sort.selection_sort_1D_int_lists(list_with_random_int)
+sort.insertion_sort_1D_int_lists(list_with_random_int)
 print("random numbers generated BUT SORTED are:")
 print(list_with_random_int)
 '''
@@ -115,8 +116,8 @@ def swap_numbers(arr: list[int]) -> int:
 
     return swapped_numbers
 
-# lista_binaria = [random.randint(0,1) for _ in range(random.randint(1,1000))]
-lista_binaria = [1,0,1,0,1,0,1,0]
+lista_binaria = [random.randint(0,1) for _ in range(random.randint(1,1000))]
+# lista_binaria = [1,0,1,0,1,0,1,0]
 print("La lista generada es:")
 print(lista_binaria)
 

@@ -50,4 +50,16 @@ def insertion_sort_1D_int_lists(arr: list[int]) -> None:
     current_unsorted = 1
 
     while current_unsorted<=arr_size:
-        
+        # Consider that we have 2 arrays, one is sorted while the other is not
+        # Here we move to the left sorted side of the list
+        sorted = 0
+
+        # In this loop we compare and we add the element to where it belongs
+        while sorted<current_unsorted:
+            if (arr[current_unsorted] <= arr[sorted]):
+                change = arr.pop(current_unsorted)
+                arr.insert(sorted, change)
+            else:
+                sorted += 1
+
+        current_unsorted += 1
