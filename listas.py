@@ -56,3 +56,70 @@ list.reverse() # reverses the sorting order of the elements.
 
 list.sort(reverse=True|False, key=myFunc) # The sort() method sorts the list ascending by default.
 '''
+def test_using_while() -> None:
+    times_reaching_number_5 = 0
+    index = 0
+    
+    # The while loop gives you complete control over 'index'
+    while index < 10:
+        # We use < 3 so it resets exactly 3 times
+        if index == 5 and times_reaching_number_5 < 3:
+            times_reaching_number_5 += 1
+            print(f"We have reached 5 for the {times_reaching_number_5} time")
+            
+            # Manually reset the index back to 0
+            index = 0
+        else:
+            print(f"Position {index}")
+            
+            # Manually advance the index
+            index += 1
+
+print(
+    "\nHagamos un nuevo ejercicio.\nSe creara un arreglo de 0s y 1s aleatorio, con un tamano desde 1 hasta 1000.\n" \
+    "El arreglo se ordenara dejando los 1s de un lado y los 0s del otro, no importa en que extremo queden.\n" \
+    "Tambien se contabilizara la cantidad de cambios adyacentes que se hagan.\n" \
+    "Los cambios solo se pueden hacer a la izquiera o derecha por numero."
+    )
+
+'''
+Lets imagine a list like [1,0,1,0,1,0,1,0]
+-> [1,0,1,0,1,0,1,0] i=1
+-> [1,0,1,0,1,0,1,0]
+-> [1,1,0,0,1,0,1,0]
+-> [1,1,0,0,1,0,1,0]
+'''
+def swap_numbers(arr: list[int]) -> int:
+    size_arr = len(arr)
+    left_end = arr[0]
+
+    current = 1
+    swapped_numbers = 0
+    while (current <= (size_arr-1)):
+        if (arr[current]!=arr[current-1]) and (left_end==arr[current]):
+            '''
+            change = arr.pop(current)
+            arr.insert(current-1, change)
+            current = current - 1
+            change = None
+            swapped_numbers += 1
+            '''
+            aux = arr[current]
+            arr[current] = arr[current-1]
+            arr[current-1] = aux
+            swapped_numbers += 1
+            current = current - 1
+            continue
+
+        current += 1
+
+    return swapped_numbers
+
+# lista_binaria = [random.randint(0,1) for _ in range(random.randint(1,1000))]
+lista_binaria = [1,0,1,0,1,0,1,0]
+print("La lista generada es:")
+print(lista_binaria)
+
+veces_cambiado = swap_numbers(lista_binaria)
+print(f"Se hicieron un total de {veces_cambiado} cambios adjuntos para acomodar la lista\nLa lista quedo de esta forma:")
+print(lista_binaria)
