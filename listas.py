@@ -1,5 +1,7 @@
 # Aprender sobre uso de listas en python
 # La declaracion de listas se hace entre square brackets []
+import random
+import sort_algorithms as sort
 
 lista_numeros_enteros: list[int] = [1,2,3,4,5]
 print(lista_numeros_enteros, end="\n\n") # Imprime el contenido de la lista completa
@@ -18,6 +20,15 @@ print(lista_numeros_enteros)
 
 print(lista_numeros_enteros[::2]) # recorrer lista usando el formato inicio:final:incremento
 
+list_with_random_int = [random.randint(1,100) for _ in range(random.randint(10,100))]
+print("random numbers generated are:")
+print(list_with_random_int)
+
+# Using several sort algorithms here
+# sort.bubble_sort_1D_int_lists(list_with_random_int)
+sort.selection_sort_1D_int_lists(list_with_random_int)
+print("random numbers generated BUT SORTED are:")
+print(list_with_random_int)
 '''
 *****METHODS USED IN ARRAYS*****
 arr.append(element) # adds an element at the end of the list
